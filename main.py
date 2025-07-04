@@ -1,6 +1,7 @@
 import argparse
 from parsers import yandex_maps
 
+
 def main():
     parser = argparse.ArgumentParser(description="Парсер пунктов выдачи заказов")
     parser.add_argument("--search", help="Бренд для поиска в Яндекс.Картах (ozon, wildberries)")
@@ -13,7 +14,7 @@ def main():
         print("Для Яндекс.Карт необходимо указать --search и --city")
         return
     query = f"{args.search} {args.city}"
-    data = yandex_maps.get_places(query)
+    data = yandex_maps.get_places(query, args.city)
 
     for entry in data:
         print(entry)
